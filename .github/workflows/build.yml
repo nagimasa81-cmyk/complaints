@@ -26,7 +26,7 @@ jobs:
         shell: powershell
 
       - name: Run BAT
-        run: build.bat
+        run: Build_EXE_Windows11_Python313_Nuitka_NO_EXCEL_FINAL.bat
         shell: cmd
 
       - name: Upload ZIP
