@@ -1,6 +1,4 @@
 
-name: Build EXE
-
 on:
   workflow_dispatch:
 
@@ -12,25 +10,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python 3.13
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.13"
 
-      - name: Install dependencies
-        run: |
-          pip install pyinstaller
-          if (Test-Path requirements.txt) {
-            pip install -r requirements.txt
-          }
-        shell: powershell
-
-      - name: Run BAT
-        run: Build_EXE_Windows11_Python313_Nuitka_NO_EXCEL_FINAL.bat
+      - name: Verify files
         shell: cmd
+        run: dir
 
-      - name: Upload ZIP
+      - name: Run Build BAT
+        shell: cmd
+        run: Build_EXE_Windows11_Python313_Nuitka_NO_EXCEL_FINAL.bat
+
+      - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
-          name: LogMergeTool_NoExcel_PSC_Review_FINAL_v35_MergeManifestSplit_Package
-          path: dist/LogMergeTool_NoExcel_PSC_Review_FINAL_v35_MergeManifestSplit_Package.exe
+          name: LogMergeTool_NoExcel
+          path: dist/LogMergeTool_NoExcel.exe
