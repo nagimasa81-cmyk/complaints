@@ -32,5 +32,5 @@ jobs:
       - name: Upload ZIP
         uses: actions/upload-artifact@v4
         with:
-          name: Complaint_Service_Hub
-          path: Complaint_Service_Hub_Distribution.zip
+          name: LogMergeTool_NoExcel_PSC_Review_FINAL_v35_MergeManifestSplit_Package
+          path: dist/LogMergeTool_NoExcel_PSC_Review_FINAL_v35_MergeManifestSplit_Package.exe
